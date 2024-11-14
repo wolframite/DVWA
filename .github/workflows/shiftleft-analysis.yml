@@ -7,13 +7,14 @@ name: SL Scan
 on:
   push:
     branches: [master]
+
   pull_request:
     branches: [master]
 
 jobs:
   Scan-Build:
     # Scan runs on ubuntu, mac and windows
-    runs-on: ubuntu-latest
+    runs-on: security
     steps:
     - uses: actions/checkout@v3
       with:
