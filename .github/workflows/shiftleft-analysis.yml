@@ -45,4 +45,4 @@ jobs:
         sarif_file: reports
 
     - name: Cleanup reports folder
-      run: pwd && ls -al
+      run: sudo mkdir -p reports && sudo rm -f reports/*
