@@ -34,7 +34,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SCAN_AUTO_BUILD: true
       with:
-        output: /tmp/reports
+        output: reports
         # Scan auto-detects the languages in your project. To override uncomment the below variable and set the type
         # type: credscan,java
         # type: python
@@ -42,4 +42,7 @@ jobs:
     - name: Upload report
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: /tmp/reports
+        sarif_file: reports
+
+    - name: Cleanup reports folder
+      run: pwd && ls -al
